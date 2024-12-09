@@ -32,3 +32,19 @@ spec:
               port: 3000
             initialDelaySeconds: 30
             timeoutSeconds: 5
+          env:
+            - name: SPOTIFY_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: SPOTIFY_CLIENT_ID
+            - name: SPOTIFY_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: SPOTIFY_CLIENT_SECRET
+            - name: SPOTIFY_REFRESH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: SPOTIFY_REFRESH_TOKEN

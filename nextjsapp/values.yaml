@@ -36,3 +36,6 @@ readinessProbe:
   httpGet:
     path: /
     port: 3000
+
+secret:
+  name: nextjsapp-secrets
