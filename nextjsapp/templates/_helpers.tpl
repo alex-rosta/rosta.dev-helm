@@ -2,7 +2,8 @@
 Expand the name of the chart.
 */}}
 {{- define "nextjsapp.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- $name := default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- $name | replace "." "-" -}}
 {{- end }}
 
 {{/*
